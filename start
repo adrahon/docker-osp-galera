@@ -1,7 +1,9 @@
 #!/bin/bash
 
-# fail hard like a mofo
+# fail immediately
 set -o errexit
+
+ln -s /dev/stdout /var/log/mariadb/mariadb.log
 
 /usr/libexec/mariadb-prepare-db-dir mariadb
 /usr/bin/mysqld_safe --basedir=/usr
